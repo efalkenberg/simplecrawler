@@ -89,6 +89,7 @@ class Crawler:
         r = requests.get(url, headers=headers)
         if r.status_code is None or r.status_code != 200:
             if r.status_code == 403 and "/cdn-cgi/" in r.text:
+                # Cloudflare's bot detection and blockage
                 # Note: there are some know hacks, but we'll be good
                 # citizen here
                 # https://www.zenrows.com/blog/bypass-cloudflare
