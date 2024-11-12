@@ -1,3 +1,8 @@
+# simplecrawlers downloaded data and some local stuff
+data/
+.DS_Store
+.idea/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
