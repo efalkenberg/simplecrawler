@@ -91,8 +91,14 @@ class Crawler:
             if r.status_code == 403 and "/cdn-cgi/" in r.text:
                 # Cloudflare's bot detection and blockage
                 # Note: there are some know hacks, but we'll be good
-                # citizen here
+                # citizen here.
+                #
+                # More context on what happened:
                 # https://www.zenrows.com/blog/bypass-cloudflare
+                # a) it makes sense to add the missing headers
+                #    to provide a legit request (how about cookies?)
+                # b) TLS fingerprinting is hard to overcome and
+                #    implementing a TLS stack is not trivial (been there ...)
                 print_error(f"Oh noes, Cloudflare blocked us from crawling {url}")
             else:
                 print_error(f"Invalid status code ({r.status_code}) for {url}")
