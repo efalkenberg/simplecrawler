@@ -102,7 +102,6 @@ class Crawler:
                 print_error(f"Oh noes, Cloudflare blocked us from crawling {url}")
             else:
                 print_error(f"Invalid status code ({r.status_code}) for {url}")
-                print_error(f"Text ({r.text})")
                 return
         else:
             if "Content-Type" not in r.headers:
